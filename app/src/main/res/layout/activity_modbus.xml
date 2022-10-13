@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModbusActivity">
+
+    <TextView
+        android:id="@+id/text_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Modbus收发"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/btn_Init"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/text_Title"
+        android:layout_marginTop="20dp"
+        android:ems="8"
+        android:text="初始化" />
+
+    <Button
+        android:id="@+id/btn_ReadWeigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Init"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="8"
+        android:text="读取" />
+
+    <TextView
+        android:id="@+id/text_Receive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_ReadWeigh"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+</RelativeLayout>
