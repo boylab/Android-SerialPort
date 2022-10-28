@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
         text_Receive  = findViewById(R.id.text_Receive);
 
         findViewById(R.id.btn_Init).setOnClickListener(new View.OnClickListener() {
