@@ -83,7 +83,7 @@ public class SendView extends RelativeLayout implements View.OnClickListener {
                 }
             }
         });
-        box_AutoSend.setSelection(1);
+        box_AutoSend.setSelection(2);
 
         input_Send.addTextChangedListener(new TextWatcher() {
             @Override

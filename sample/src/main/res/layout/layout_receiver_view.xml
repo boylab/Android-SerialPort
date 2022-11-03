@@ -78,7 +78,7 @@
         android:checked="false"
         android:gravity="center"
         android:padding="10dp"
-        android:text="十六进显示"
+        android:text="隔行显示"
         android:textColor="@android:color/black"
         android:textSize="22sp" />
 

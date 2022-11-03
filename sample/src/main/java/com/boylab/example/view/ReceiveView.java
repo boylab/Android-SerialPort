@@ -71,7 +71,8 @@ public class ReceiveView extends RelativeLayout {
 
     public void addShow(byte[] data){
         int length = data.length;
-        if (mBuffer.remaining() < length){
+        int mLen = isNext ? length + 256 : length;
+        if (mBuffer.remaining() < mLen){
             mBuffer.clear();
             text_Receive.setText("");
         }

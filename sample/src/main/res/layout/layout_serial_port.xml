@@ -62,7 +62,7 @@
             android:padding="10dp"
             android:layout_marginLeft="20dp"
             android:text="打开串口"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="22sp" />
 
     </LinearLayout>
