@@ -47,10 +47,12 @@ public class MainActivity extends AppCompatActivity implements SendView.OnSendLi
         HashMap<String, Integer> serial = SharePref.getSerial(this);
         String sendData = SharePref.getSendData(this);
         boolean hexShow = SharePref.isHexShow(this);
+        boolean isNext = SharePref.isNextLine(this);
 
         serialPort.setSerial(serial);
         sendView.setInputSend(sendData);
         receiveView.setHexShow(hexShow);
+        receiveView.setNextLine(isNext);
     }
 
     @Override
@@ -94,5 +96,6 @@ public class MainActivity extends AppCompatActivity implements SendView.OnSendLi
         SharePref.setSerial(this, serialPort.getSerial());
         SharePref.setSendData(this, sendView.getInputSend());
         SharePref.setHexShow(this, receiveView.isHexShow());
+        SharePref.setNextLine(this, receiveView.isNextLine());
     }
 }

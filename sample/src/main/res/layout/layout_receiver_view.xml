@@ -66,6 +66,22 @@
         android:textColor="@android:color/black"
         android:textSize="22sp" />
 
+    <CheckBox
+        android:id="@+id/box_NextLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_Clear"
+        android:layout_alignBottom="@+id/btn_Clear"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/box_ShowHex"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:checked="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="十六进显示"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
     <TextView
         android:id="@+id/text_Receive"
         android:layout_width="match_parent"

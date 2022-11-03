@@ -18,9 +18,9 @@ import java.nio.ByteBuffer;
 public class ReceiveView extends RelativeLayout {
     private Button btn_Clear;
     private TextView text_Rx, text_Receive;
-    private CheckBox box_ShowHex;
+    private CheckBox box_ShowHex, box_NextLine;
 
-    private boolean isHex = false;
+    private boolean isHex = false, isNext = false;
     private ByteBuffer mBuffer = ByteBuffer.allocate(512);
     private int rxNum = 0;
 
@@ -43,6 +43,7 @@ public class ReceiveView extends RelativeLayout {
         btn_Clear = findViewById(R.id.btn_Clear);
         text_Rx = findViewById(R.id.text_Rx);
         box_ShowHex = findViewById(R.id.box_ShowHex);
+        box_NextLine = findViewById(R.id.box_NextLine);
         text_Receive = findViewById(R.id.text_Receive);
         text_Receive.setMovementMethod(ScrollingMovementMethod.getInstance());
 
@@ -50,6 +51,12 @@ public class ReceiveView extends RelativeLayout {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 isHex = isChecked;
+            }
+        });
+        box_NextLine.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isNext = isChecked;
             }
         });
         btn_Clear.setOnClickListener(new OnClickListener() {
@@ -75,6 +82,7 @@ public class ReceiveView extends RelativeLayout {
             str += (isHex ? String.format("%02x ", b) : String.format("%02d ", b));
         }
         text_Receive.append(str);
+        text_Receive.append(isNext ? "\n" : "");
 
         rxNum = rxNum + length;
         text_Rx.setText(String.format("Rx: %d", rxNum));
@@ -96,6 +104,14 @@ public class ReceiveView extends RelativeLayout {
 
     public boolean isHexShow(){
         return box_ShowHex.isChecked();
+    }
+
+    public void setNextLine(boolean isNextLine){
+        box_NextLine.setChecked(isNextLine);
+    }
+
+    public boolean isNextLine(){
+        return box_NextLine.isChecked();
     }
 
 }

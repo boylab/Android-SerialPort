@@ -63,4 +63,17 @@ public class SharePref {
         editor.commit();
     }
 
+    public static boolean isNextLine(Context context){
+        mShared = context.getSharedPreferences("serial", Context.MODE_PRIVATE);
+        boolean isNextLine = mShared.getBoolean("isNext", true);
+        return isNextLine;
+    }
+
+    public static void setNextLine(Context context, boolean isNextLine){
+        mShared = context.getSharedPreferences("serial", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mShared.edit();
+        editor.putBoolean("isNext", isNextLine);
+        editor.commit();
+    }
+
 }
