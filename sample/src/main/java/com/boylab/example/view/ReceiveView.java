@@ -21,7 +21,7 @@ public class ReceiveView extends RelativeLayout {
     private CheckBox box_ShowHex;
 
     private boolean isHex = false;
-    private ByteBuffer mBuffer = ByteBuffer.allocate(2048);
+    private ByteBuffer mBuffer = ByteBuffer.allocate(512);
     private int rxNum = 0;
 
     public ReceiveView(Context context) {
