@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_spinner_list_bg"
+    android:padding="1dp">
+
+    <CheckBox
+        android:id="@+id/box_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:background="@android:color/holo_blue_dark"
+        android:ems="6"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="发送间隔"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/box_Label"
+        android:layout_alignBottom="@+id/box_Label"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/box_Label"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+
+</RelativeLayout>

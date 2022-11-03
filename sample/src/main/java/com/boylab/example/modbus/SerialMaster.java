@@ -1,6 +1,6 @@
 package com.boylab.example.modbus;
 
-import android.serialport.SerialPortManager;
+import com.boylab.serialport.SerialPortManager;
 import android.util.Log;
 
 import com.serotonin.modbus4j.ModbusFactory;

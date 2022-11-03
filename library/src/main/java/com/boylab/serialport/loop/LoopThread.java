@@ -1,4 +1,4 @@
-package android.serialport.loop;
+package com.boylab.serialport.loop;
 
 public abstract class LoopThread implements Runnable {
     public volatile Thread thread = null;

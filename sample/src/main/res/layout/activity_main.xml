@@ -1,48 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/text_Title"
+    <com.boylab.example.view.SerialPortView
+        android:id="@+id/serialPort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.boylab.example.view.SendView
+        android:id="@+id/sendView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="串口收发"
-        android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/serialPort" />
 
-    <Button
-        android:id="@+id/btn_Init"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/text_Title"
-        android:ems="8"
-        android:text="初始化" />
-
-    <Button
-        android:id="@+id/btn_ReadWeigh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Init"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:ems="8"
-        android:text="原始读取" />
-
-    <TextView
-        android:id="@+id/text_Receive"
+    <com.boylab.example.view.ReceiveView
+        android:id="@+id/receiveView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn_ReadWeigh"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
+        android:layout_below="@+id/sendView"
+        android:layout_alignLeft="@+id/sendView"
+        android:layout_marginTop="3dp" />
 
 </RelativeLayout>

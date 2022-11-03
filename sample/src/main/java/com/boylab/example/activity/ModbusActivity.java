@@ -1,4 +1,4 @@
-package com.boylab.example;
+package com.boylab.example.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.boylab.example.R;
 import com.boylab.example.modbus.SerialMaster;
 import com.serotonin.modbus4j.msg.ReadInputRegistersResponse;
 

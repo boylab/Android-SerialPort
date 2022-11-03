@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="3dp"
+    android:background="@drawable/shape_spinner_list_bg">
+
+    <Button
+        android:id="@+id/btn_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="2dp"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:ems="6"
+        android:padding="3dp"
+        android:text="清空显示"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/text_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_Clear"
+        android:layout_alignBottom="@+id/btn_Clear"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:checked="true"
+        android:ems="5"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="接收区"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/text_Rx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_Clear"
+        android:layout_alignBottom="@+id/btn_Clear"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/text_Label"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:checked="true"
+        android:ems="8"
+        android:gravity="center_vertical|left"
+        android:padding="10dp"
+        android:text="Rx: 0"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <CheckBox
+        android:id="@+id/box_ShowHex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_Clear"
+        android:layout_alignBottom="@+id/btn_Clear"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/text_Rx"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:checked="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="十六进显示"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/text_Receive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_Clear"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape_spinner_list_bg"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+</RelativeLayout>

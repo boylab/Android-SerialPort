@@ -1,6 +1,6 @@
-package android.serialport.loop;
+package com.boylab.serialport.loop;
 
-import android.serialport.SerialPortManager;
+import com.boylab.serialport.SerialPortManager;
 
 import java.io.IOException;
 import java.io.InputStream;

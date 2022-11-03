@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:padding="1dp">
+
+    <com.boylab.example.view.SpinnerList
+        android:id="@+id/serialSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.boylab.example.view.SpinnerList
+        android:id="@+id/baudSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/serialSpinner"
+        android:layout_marginTop="10dp" />
+
+    <com.boylab.example.view.SpinnerList
+        android:id="@+id/dataBitSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/baudSpinner"
+        android:layout_marginTop="10dp" />
+
+    <com.boylab.example.view.SpinnerList
+        android:id="@+id/paritySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dataBitSpinner"
+        android:layout_marginTop="10dp" />
+
+    <com.boylab.example.view.SpinnerList
+        android:id="@+id/stopBitSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/paritySpinner"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/stopBitSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingVertical="10dp"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/box_State"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:background="@drawable/serial_state_selector" />
+
+        <Button
+            android:id="@+id/btn_Open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="打开串口"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

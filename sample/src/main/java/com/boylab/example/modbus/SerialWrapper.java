@@ -1,7 +1,7 @@
 package com.boylab.example.modbus;
 
-import android.serialport.SerialPortManager;
-import android.serialport.PortBean;
+import com.boylab.serialport.SerialPortManager;
+import com.boylab.serialport.SerialBean;
 
 import com.serotonin.modbus4j.serial.SerialPortWrapper;
 
@@ -10,7 +10,7 @@ import java.io.OutputStream;
 
 public class SerialWrapper implements SerialPortWrapper {
 
-    private PortBean portBean;
+    private SerialBean serialBean;
     private SerialPortManager serialPortManager;
 
     /**
@@ -21,8 +21,8 @@ public class SerialWrapper implements SerialPortWrapper {
         if(serialPortManager!= null) {
             serialPortManager.close();
         }
-        portBean = new PortBean("/dev/ttyMT2", 38400, PortBean.PARITY_EVEN);
-        serialPortManager = new SerialPortManager(portBean, false);   //不开启读线程，交给modbus
+        serialBean = new SerialBean("/dev/ttyMT2", 38400, 2);
+        serialPortManager = new SerialPortManager(serialBean, false);   //不开启读线程，交给modbus
     }
 
     @Override
@@ -45,21 +45,21 @@ public class SerialWrapper implements SerialPortWrapper {
 
     @Override
     public int getBaudRate() {
-        return portBean.getSpeed();
+        return serialBean.getBaudrate();
     }
 
     @Override
     public int getDataBits() {
-        return portBean.getDataBits();
+        return serialBean.getDataBits();
     }
 
     @Override
     public int getStopBits() {
-        return portBean.getStopBits();
+        return serialBean.getStopBits();
     }
 
     @Override
     public int getParity() {
-        return portBean.getParityInt();
+        return serialBean.getParity();
     }
 }

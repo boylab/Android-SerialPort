@@ -1,9 +1,10 @@
-package android.serialport;
+package com.boylab.serialport;
 
-import android.serialport.loop.AutoReadThread;
+import android.serialport.SerialPort;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import com.boylab.serialport.loop.AutoReadThread;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,30 +31,34 @@ public class SerialPortManager {
 
     /**
      * 默认开启串口读取
-     * @param portBean
+     * @param serialBean
      */
-    public SerialPortManager(PortBean portBean) {
-        this(portBean, false);
+    public SerialPortManager(SerialBean serialBean) {
+        this(serialBean, false);
     }
 
-    public SerialPortManager(PortBean portBean, boolean isAutoRead) {
-        this.open(portBean, isAutoRead);
+    public SerialPortManager(SerialBean serialBean, boolean isAutoRead) {
+        this.open(serialBean, isAutoRead);
     }
 
     /**
      * 开启串口
-     * @param portBean
+     * @param serialBean
      * @return
      */
-    private SerialPort open(PortBean portBean, boolean isAutoRead) {
+    private SerialPort open(SerialBean serialBean, boolean isAutoRead) {
         try {
-            File deviceFile = new File(portBean.getPath());
+            File deviceFile = new File(serialBean.getDevicePath());
             if (!deviceFile.exists()) {
                 Loge("device path is not exists");
                 return null;
             }
+            int baudrate = serialBean.getBaudrate();
+            int dataBits = serialBean.getDataBits();
+            int parity = serialBean.getParity();
+            int stopBits = serialBean.getStopBits();
 
-            this.mSerialPort = new SerialPort(deviceFile, portBean);
+            this.mSerialPort = new SerialPort(deviceFile, baudrate, dataBits, parity, stopBits);
             this.mInputStream = mSerialPort.getInputStream();
             this.mOutputStream = mSerialPort.getOutputStream();
             this.isPortOpen.set(true);
