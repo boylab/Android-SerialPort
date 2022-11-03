@@ -75,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_SendData"
+        android:layout_toLeftOf="@+id/btn_SendData"
         android:layout_marginTop="3dp"
         android:background="@drawable/shape_spinner_list_bg"
         android:hint="313233 --> (0x31 0x32 0x33)"
