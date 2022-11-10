@@ -15,7 +15,9 @@ import com.boylab.example.view.SendView;
 import com.boylab.example.view.SerialPortView;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SendView.OnSendListener, SerialPortView.OnSerialOpenListener, SerialPortManager.OnAutoReadListener {
 
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements SendView.OnSendLi
         super.onStart();
         SerialPortFinder serialPortFinder = new SerialPortFinder();
         String[] devicesPath = serialPortFinder.getAllDevicesPath();
-        serialPort.setSerialPort(Arrays.asList(devicesPath), this);
+        List<String> devicesList = Arrays.asList(devicesPath);
+        Collections.sort(devicesList);  //排序
+        serialPort.setSerialPort(devicesList, this);
 
         HashMap<String, Integer> serial = SharePref.getSerial(this);
         String sendData = SharePref.getSendData(this);
