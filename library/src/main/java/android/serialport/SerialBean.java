@@ -14,11 +14,14 @@ import android.os.Parcelable;
  */
 public class SerialBean implements Parcelable {
 
+    //0:无校验位(NONE，默认)；1:奇校验位(ODD);2:偶校验位(EVEN)
+    public static final int PTY_NONE = 0, PTY_ODD = 1, PTY_EVEN = 2;
+
     private String devicePath = "/dev/ttyMT0";
     private int baudrate = 9600;
     private int dataBits = 8;
     private int stopBits = 1;
-    private int parity = 0;   //0:无校验位(NONE，默认)；1:奇校验位(ODD);2:偶校验位(EVEN)
+    private int parity = PTY_NONE;
 
     public SerialBean() {
     }
