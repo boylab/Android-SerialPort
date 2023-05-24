@@ -1,6 +1,8 @@
 package com.boylab.serialport.loop;
 
-import com.boylab.serialport.SerialPortManager;
+import android.serialport.OnAutoReadListener;
+
+import android.serialport.SerialPortManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +14,7 @@ public class AutoReadThread extends LoopThread {
     private InputStream mInputStream;
     private byte[] buffer = new byte[1024];
 
-    private SerialPortManager.OnAutoReadListener onAutoReadListener = null;
+    private OnAutoReadListener onAutoReadListener = null;
 
     public AutoReadThread(InputStream mInputStream, AtomicBoolean isThreadOpen) {
         super();
@@ -20,7 +22,7 @@ public class AutoReadThread extends LoopThread {
         this.isThreadOpen = isThreadOpen;
     }
 
-    public void setOnAutoReadListener(SerialPortManager.OnAutoReadListener onAutoReadListener) {
+    public void setOnAutoReadListener(OnAutoReadListener onAutoReadListener) {
         this.onAutoReadListener = onAutoReadListener;
     }
 
@@ -46,7 +48,6 @@ public class AutoReadThread extends LoopThread {
                         onAutoReadListener.onAutoRead(readBytes, size);
                     }
                 }
-                Thread.sleep(100);
             } catch (IOException e) {
                 SerialPortManager.Loge("Auto Read Failed " + e.toString());
             }

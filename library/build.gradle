@@ -8,8 +8,6 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -21,24 +19,29 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //混淆
+            minifyEnabled true
+            // 移除无用的resource文件，与 minifyEnabled 一起使用
+            //shrinkResources true//Error:Resource shrinker cannot be used for libraries.
+            //Zipalign优化，让安装包的资源按4字节对齐，减少应用在运行时的内存消耗
+            zipAlignEnabled true
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    lintOptions {
-        abortOnError false
-    }
 
+    //Copy类型
     task makeJar(type: Copy) {
         //删除存在的
-        delete 'build/libs/myjar.jar'
+        delete 'build/libs/serialport.jar'
         //设置拷贝的文件
-        from('build/intermediates/bundles/debug/')
+        //from('build/intermediates/bundles/release/')
+        from('build/intermediates/aar_main_jar/release/')
         //打进jar包后的文件目录
         into('build/libs/')
         //将classes.jar放入build/libs/目录下
@@ -46,15 +49,26 @@ android {
         //（我们只关心classes.jar这个文件）
         include('classes.jar')
         //重命名
-        rename ('classes.jar', 'myjar.jar')
+        rename ('classes.jar', 'serialport.jar')
     }
+
     makeJar.dependsOn(build)
+    //在终端执行生成JAR包
+    // ./gradlew makeJar
+
+    //\build\outputs\aar下的aar文件改成jar
 
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
+    lint {
+        abortOnError false
+        baseline = file("lint-baseline.xml")
+    }
+
+    namespace 'com.boylab.serialport'
 
 }
 

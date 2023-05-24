@@ -1,9 +1,10 @@
-package com.boylab.serialport;
+package android.serialport;
 
-import android.serialport.SerialPort;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+
+import com.boylab.serialport.SerialPortFinder;
 import com.boylab.serialport.loop.AutoReadThread;
 
 import java.io.File;
@@ -128,10 +129,13 @@ public class SerialPortManager {
     }
 
     /**
-     * 串口数据回调
+     * 获取全部串口
+     * @return
      */
-    public interface OnAutoReadListener {
-        void onAutoRead(byte[] data, int length);
+    public static final String[] allDevicesPath(){
+        SerialPortFinder serialPortFinder = new SerialPortFinder();
+        String[] devicesPath = serialPortFinder.getAllDevicesPath();
+        return devicesPath;
     }
 
     /**

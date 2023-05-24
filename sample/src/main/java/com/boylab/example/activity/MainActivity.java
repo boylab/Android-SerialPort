@@ -3,11 +3,11 @@ package com.boylab.example.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.serialport.OnAutoReadListener;
+import android.serialport.SerialBean;
+import android.serialport.SerialPortManager;
 
 import com.boylab.example.utils.SharePref;
-import com.boylab.serialport.SerialBean;
-import android.serialport.SerialPortFinder;
-import com.boylab.serialport.SerialPortManager;
 
 import com.boylab.example.R;
 import com.boylab.example.view.ReceiveView;
@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SendView.OnSendListener, SerialPortView.OnSerialOpenListener, SerialPortManager.OnAutoReadListener {
+public class MainActivity extends AppCompatActivity implements SendView.OnSendListener, SerialPortView.OnSerialOpenListener, OnAutoReadListener {
 
     private SerialPortManager serialPortManager = null;
 
@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements SendView.OnSendLi
     @Override
     protected void onStart() {
         super.onStart();
-        SerialPortFinder serialPortFinder = new SerialPortFinder();
-        String[] devicesPath = serialPortFinder.getAllDevicesPath();
+        String[] devicesPath = SerialPortManager.allDevicesPath();
+
         List<String> devicesList = Arrays.asList(devicesPath);
         Collections.sort(devicesList);  //排序
         serialPort.setSerialPort(devicesList, this);

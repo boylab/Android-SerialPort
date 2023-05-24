@@ -1,7 +1,7 @@
 package com.boylab.example.view;
 
 import android.content.Context;
-import com.boylab.serialport.SerialBean;
+import android.serialport.SerialBean;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;

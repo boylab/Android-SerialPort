@@ -1,4 +1,4 @@
-package com.boylab.serialport;
+package android.serialport;
 
 import android.os.Parcel;
 import android.os.Parcelable;
